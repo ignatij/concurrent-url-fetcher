@@ -93,7 +93,7 @@ func main() {
 	resultChan := make(chan UrlResult)
 	wg := sync.WaitGroup{}
 	for idx := range workers {
-		go func(idx int) {
+		func(idx int) {
 			wg.Go(func() {
 				workerThread(workerChan, resultChan, idx+1)
 			})
